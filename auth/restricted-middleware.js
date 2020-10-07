@@ -10,7 +10,11 @@ module.exports = (req, res, next) => {
     if (token) {
       jwt.verify(token, secret, (err, decodedToken) => {
         if (err) {
-          next({ apiCode: 401, apiMessage: "Invalid or missing credentials" });
+          next({
+            apiCode: 401,
+            apiMessage: "Invalid or missing credentials",
+            ...err,
+          });
         } else {
           req.decodedToken = decodedToken;
           next();

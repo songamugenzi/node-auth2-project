@@ -3,7 +3,7 @@ module.exports = function (department) {
     if (
       req.decodedToken &&
       req.decodedToken.departmentname &&
-      req.decodedToken.departmentname === role
+      req.decodedToken.departmentname === department
     ) {
       next();
     } else {

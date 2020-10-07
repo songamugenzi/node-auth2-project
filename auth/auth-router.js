@@ -64,6 +64,7 @@ function generateToken(user) {
   };
 
   const secret = process.env.JWT_SECRET || "some insecure secret";
+
   const options = {
     expiresIn: "1d",
   };

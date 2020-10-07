@@ -15,7 +15,7 @@ function find() {
 
 function findBy(filter) {
   return db("users as u")
-    .join("departments as d", "u.role, d.id")
+    .join("departments as d", "u.department", "d.id")
     .select("u.id", "u.username", "d.name as departmentname", "u.password")
     .where(filter)
     .orderBy("u.id");
